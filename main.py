@@ -9,7 +9,7 @@ for employee in employee_data:
     emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)
     filename = f"{employee['nombres'].replace(' ', '_')}_{employee['apellidos'].replace(' ', '_')}"
     password = generate_password(16)  # Contraseña de 16 caracteres
-    export_p12(emp_cert, emp_key, password, filename)
+    export_p12(emp_cert, emp_key, ca_cert, password, filename)
     print(f"Certificado PKCS#12 para {employee['nombres']} {employee['apellidos']} generado.")
     print(f"Archivo: {filename}.p12 | Contraseña: {password}")
 

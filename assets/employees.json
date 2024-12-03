@@ -1,13 +1,13 @@
 [
   {
     "nombres": "Juan Carlos",
-    "apellidos": "Pérez Gómez",
+    "apellidos": "Perez Gomez",
     "cargo": "Gerente General",
     "cedula": "1234567890"
   },
   {
-    "nombres": "María José",
-    "apellidos": "López Ruiz",
+    "nombres": "Maria Jose",
+    "apellidos": "Lopez Ruiz",
     "cargo": "Contadora",
     "cedula": "0987654321"
   }

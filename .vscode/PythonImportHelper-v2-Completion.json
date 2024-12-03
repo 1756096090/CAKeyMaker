@@ -1,0 +1,236 @@
+[
+    {
+        "label": "x509",
+        "importPath": "cryptography",
+        "description": "cryptography",
+        "isExtraImport": true,
+        "detail": "cryptography",
+        "documentation": {}
+    },
+    {
+        "label": "NameOID",
+        "importPath": "cryptography.x509.oid",
+        "description": "cryptography.x509.oid",
+        "isExtraImport": true,
+        "detail": "cryptography.x509.oid",
+        "documentation": {}
+    },
+    {
+        "label": "rsa",
+        "importPath": "cryptography.hazmat.primitives.asymmetric",
+        "description": "cryptography.hazmat.primitives.asymmetric",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.asymmetric",
+        "documentation": {}
+    },
+    {
+        "label": "hashes",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "serialization",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "hashes",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "default_backend",
+        "importPath": "cryptography.hazmat.backends",
+        "description": "cryptography.hazmat.backends",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.backends",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "serialize_key_and_certificates",
+        "importPath": "cryptography.hazmat.primitives.serialization.pkcs12",
+        "description": "cryptography.hazmat.primitives.serialization.pkcs12",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.serialization.pkcs12",
+        "documentation": {}
+    },
+    {
+        "label": "PrivateFormat",
+        "importPath": "cryptography.hazmat.primitives.serialization",
+        "description": "cryptography.hazmat.primitives.serialization",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.serialization",
+        "documentation": {}
+    },
+    {
+        "label": "pkcs12",
+        "importPath": "cryptography.hazmat.primitives.serialization",
+        "description": "cryptography.hazmat.primitives.serialization",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.serialization",
+        "documentation": {}
+    },
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "generate_ca",
+        "importPath": "services.certificates_service",
+        "description": "services.certificates_service",
+        "isExtraImport": true,
+        "detail": "services.certificates_service",
+        "documentation": {}
+    },
+    {
+        "label": "generate_employee_cert",
+        "importPath": "services.certificates_service",
+        "description": "services.certificates_service",
+        "isExtraImport": true,
+        "detail": "services.certificates_service",
+        "documentation": {}
+    },
+    {
+        "label": "read_json",
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "isExtraImport": true,
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password",
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "isExtraImport": true,
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "export_p12",
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "isExtraImport": true,
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_ca",
+        "kind": 2,
+        "importPath": "services.certificates_service",
+        "description": "services.certificates_service",
+        "peekOfCode": "def generate_ca():\n    ca_private_key_path = \"assets/ca_files/ca_private_key.pem\"\n    ca_certificate_path = \"assets/ca_files/ca_certificate.pem\"\n    os.makedirs(\"assets/ca_files\", exist_ok=True)\n    if os.path.exists(ca_private_key_path) and os.path.exists(ca_certificate_path):\n        with open(ca_private_key_path, \"rb\") as key_file:\n            ca_key = serialization.load_pem_private_key(\n                key_file.read(),\n                password=None,\n                backend=default_backend()",
+        "detail": "services.certificates_service",
+        "documentation": {}
+    },
+    {
+        "label": "generate_employee_cert",
+        "kind": 2,
+        "importPath": "services.certificates_service",
+        "description": "services.certificates_service",
+        "peekOfCode": "def generate_employee_cert(ca_key, ca_cert, employee):\n    emp_key = rsa.generate_private_key(public_exponent=65537, key_size=2048, backend=default_backend())\n    subject = x509.Name([\n        x509.NameAttribute(NameOID.COUNTRY_NAME, \"EC\"),\n        x509.NameAttribute(NameOID.ORGANIZATION_NAME, \"Mi Empresa\"),\n        x509.NameAttribute(NameOID.COMMON_NAME, f\"{employee['nombres']} {employee['apellidos']}\"),\n        x509.NameAttribute(NameOID.SERIAL_NUMBER, employee['cedula']),\n        x509.NameAttribute(NameOID.TITLE, employee['cargo']),\n    ])\n    # Certificado del empleado firmado por la CA",
+        "detail": "services.certificates_service",
+        "documentation": {}
+    },
+    {
+        "label": "export_p12",
+        "kind": 2,
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "peekOfCode": "def export_p12(cert, key,ca_cert, password, filename):\n    # Create custom encryption builder\n    encryption = (\n        PrivateFormat.PKCS12.encryption_builder()\n        .kdf_rounds(50000)\n        .key_cert_algorithm(pkcs12.PBES.PBESv1SHA1And3KeyTripleDESCBC)\n        .hmac_hash(hashes.SHA1())\n        .build(password.encode())\n    )\n    # Serialize key and certificates into PKCS#12 format",
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password",
+        "kind": 2,
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "peekOfCode": "def generate_password(length=12):\n    alphabet = string.ascii_letters + string.digits #+ string.punctuation\n    return ''.join(secrets.choice(alphabet) for _ in range(length))\ndef read_json(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        return json.load(file)",
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "read_json",
+        "kind": 2,
+        "importPath": "utils.utils",
+        "description": "utils.utils",
+        "peekOfCode": "def read_json(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        return json.load(file)",
+        "detail": "utils.utils",
+        "documentation": {}
+    },
+    {
+        "label": "employee_data",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "employee_data = read_json(\"assets/employees.json\")\nfor employee in employee_data:\n    emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)\n    filename = f\"{employee['nombres'].replace(' ', '_')}_{employee['apellidos'].replace(' ', '_')}\"\n    password = generate_password(16)  # Contraseña de 16 caracteres\n    export_p12(emp_cert, emp_key, ca_cert, password, filename)\n    print(f\"Certificado PKCS#12 para {employee['nombres']} {employee['apellidos']} generado.\")\n    print(f\"Archivo: {filename}.p12 | Contraseña: {password}\")",
+        "detail": "main",
+        "documentation": {}
+    }
+]
