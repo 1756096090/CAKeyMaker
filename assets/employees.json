@@ -1,14 +1,69 @@
 [
+
   {
-    "nombres": "Juan Carlos",
-    "apellidos": "Perez Gomez",
-    "cargo": "Gerente General",
-    "cedula": "1234567890"
+    "nombres": "Mayra Briones",
+    "cargo": "Ciemtelcom",
+    "cedula": "jQp1q/k\\Ia$1",
+    "mail": "mayra.briones@ciemtelcom.com"
   },
   {
-    "nombres": "Maria Jose",
-    "apellidos": "Lopez Ruiz",
-    "cargo": "Contadora",
-    "cedula": "0987654321"
+    "nombres": "Ana María Tigua",
+    "cargo": "Ciemtelcom",
+    "cedula": "EvgK0iB)n!CR",
+    "mail": "ana.tigua@ciemtelcom.com"
+  },
+  {
+    "nombres": "Juan Carlos Loor",
+    "cargo": "Ciemtelcom",
+    "cedula": "D36~j8qv<&ja",
+    "mail": "juan.loor@ciemtelcom.com"
+  },
+  {
+    "nombres": "Leonardo Sandoval",
+    "cargo": "Ciemtelcom",
+    "cedula": "9P+EVt8@O@}0",
+    "mail": "leonardo.sandoval@ciemtelcom.com"
+  },
+  {
+    "nombres": "Fernando Calderon",
+    "cargo": "Ciemtelcom",
+    "cedula": "Cl1(TRQ<[Rbf",
+    "mail": "fernando.calderon@ciemtelcom.com"
+  },
+  {
+    "nombres": "Alexandra Luje",
+    "cargo": "Ciemtelcom",
+    "cedula": "1z5H4XXgP<lk",
+    "mail": "alexandra.luje@ciemtelcom.com"
+  },
+  {
+    "nombres": "Karla Cabrera",
+    "cargo": "Ciemtelcom",
+    "cedula": "G33V?LqLXM87",
+    "mail": "karla.cabrera@ciemtelcom.com"
+  },
+  {
+    "nombres": "Berenice Castillo",
+    "cargo": "Ciemtelcom",
+    "cedula": "uuD3jV3g5x@U",
+    "mail": "berenice.castillo@ciemtelcom.com"
+  },
+  {
+    "nombres": "Christian Soria",
+    "cargo": "Ciemtelcom",
+    "cedula": "htBxqIWg!6Re",
+    "mail": "christian.soria@ciemtelcom.com"
+  },
+  {
+    "nombres": "Xavier Reyes",
+    "cargo": "Ciemtelcom",
+    "cedula": "8*3rXnkVG1MJ",
+    "mail": "xavier.reyes@ciemtelcom.com"
+  },
+  {
+    "nombres": "Diego Zamora",
+    "cargo": "Ciemtelcom",
+    "cedula": "Uk>EQsLJ5Lra",
+    "mail": "diego.zamora@ciemtelcom.com"
   }
 ]

@@ -16,6 +16,38 @@
         "documentation": {}
     },
     {
+        "label": "ExtendedKeyUsageOID",
+        "importPath": "cryptography.x509.oid",
+        "description": "cryptography.x509.oid",
+        "isExtraImport": true,
+        "detail": "cryptography.x509.oid",
+        "documentation": {}
+    },
+    {
+        "label": "NameOID",
+        "importPath": "cryptography.x509.oid",
+        "description": "cryptography.x509.oid",
+        "isExtraImport": true,
+        "detail": "cryptography.x509.oid",
+        "documentation": {}
+    },
+    {
+        "label": "ExtendedKeyUsageOID",
+        "importPath": "cryptography.x509.oid",
+        "description": "cryptography.x509.oid",
+        "isExtraImport": true,
+        "detail": "cryptography.x509.oid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectIdentifier",
+        "importPath": "cryptography.x509.oid",
+        "description": "cryptography.x509.oid",
+        "isExtraImport": true,
+        "detail": "cryptography.x509.oid",
+        "documentation": {}
+    },
+    {
         "label": "rsa",
         "importPath": "cryptography.hazmat.primitives.asymmetric",
         "description": "cryptography.hazmat.primitives.asymmetric",
@@ -140,6 +172,15 @@
         "documentation": {}
     },
     {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
         "label": "generate_ca",
         "importPath": "services.certificates_service",
         "description": "services.certificates_service",
@@ -180,11 +221,20 @@
         "documentation": {}
     },
     {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
         "label": "generate_ca",
         "kind": 2,
         "importPath": "services.certificates_service",
         "description": "services.certificates_service",
-        "peekOfCode": "def generate_ca():\n    ca_private_key_path = \"assets/ca_files/ca_private_key.pem\"\n    ca_certificate_path = \"assets/ca_files/ca_certificate.pem\"\n    os.makedirs(\"assets/ca_files\", exist_ok=True)\n    if os.path.exists(ca_private_key_path) and os.path.exists(ca_certificate_path):\n        with open(ca_private_key_path, \"rb\") as key_file:\n            ca_key = serialization.load_pem_private_key(\n                key_file.read(),\n                password=None,\n                backend=default_backend()",
+        "peekOfCode": "def generate_ca():\n    # CA generation code remains the same\n    ca_private_key_path = \"assets/ca_files/ca_private_key.pem\"\n    ca_certificate_path = \"assets/ca_files/ca_certificate.pem\"\n    os.makedirs(\"assets/ca_files\", exist_ok=True)\n    if os.path.exists(ca_private_key_path) and os.path.exists(ca_certificate_path):\n        with open(ca_private_key_path, \"rb\") as key_file:\n            ca_key = serialization.load_pem_private_key(\n                key_file.read(),\n                password=None,",
         "detail": "services.certificates_service",
         "documentation": {}
     },
@@ -193,7 +243,7 @@
         "kind": 2,
         "importPath": "services.certificates_service",
         "description": "services.certificates_service",
-        "peekOfCode": "def generate_employee_cert(ca_key, ca_cert, employee):\n    emp_key = rsa.generate_private_key(public_exponent=65537, key_size=2048, backend=default_backend())\n    subject = x509.Name([\n        x509.NameAttribute(NameOID.COUNTRY_NAME, \"EC\"),\n        x509.NameAttribute(NameOID.ORGANIZATION_NAME, \"Mi Empresa\"),\n        x509.NameAttribute(NameOID.COMMON_NAME, f\"{employee['nombres']} {employee['apellidos']}\"),\n        x509.NameAttribute(NameOID.SERIAL_NUMBER, employee['cedula']),\n        x509.NameAttribute(NameOID.TITLE, employee['cargo']),\n    ])\n    # Certificado del empleado firmado por la CA",
+        "peekOfCode": "def generate_employee_cert(ca_key, ca_cert, employee):\n    # Generar clave privada del empleado\n    emp_key = rsa.generate_private_key(\n        public_exponent=65537,\n        key_size=2048,\n        backend=default_backend()\n    )\n    # OIDs específicos para Adobe\n    ADOBE_PPKLIT = ObjectIdentifier(\"1.2.840.113583.1.1.5\")\n    ADOBE_SIGNING = ObjectIdentifier(\"1.2.840.113583.1.1.9.1\")",
         "detail": "services.certificates_service",
         "documentation": {}
     },
@@ -225,11 +275,65 @@
         "documentation": {}
     },
     {
+        "label": "generar_clave_aleatoria",
+        "kind": 2,
+        "importPath": "generatorPwd",
+        "description": "generatorPwd",
+        "peekOfCode": "def generar_clave_aleatoria():\n    mayusculas = string.ascii_uppercase\n    minusculas = string.ascii_lowercase\n    numeros = string.digits\n    especiales = \"!@#$%^&*()_-+=<>?\"\n    # Elegir al menos un carácter de cada tipo\n    clave = [\n        random.choice(mayusculas),\n        random.choice(minusculas),\n        random.choice(numeros),",
+        "detail": "generatorPwd",
+        "documentation": {}
+    },
+    {
+        "label": "clave",
+        "kind": 5,
+        "importPath": "generatorPwd",
+        "description": "generatorPwd",
+        "peekOfCode": "clave = generar_clave_aleatoria()\nprint(f\"Clave generada: {clave}\")",
+        "detail": "generatorPwd",
+        "documentation": {}
+    },
+    {
         "label": "employee_data",
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "employee_data = read_json(\"assets/employees.json\")\nfor employee in employee_data:\n    emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)\n    filename = f\"{employee['nombres'].replace(' ', '_')}_{employee['apellidos'].replace(' ', '_')}\"\n    password = generate_password(16)  # Contraseña de 16 caracteres\n    export_p12(emp_cert, emp_key, ca_cert, password, filename)\n    print(f\"Certificado PKCS#12 para {employee['nombres']} {employee['apellidos']} generado.\")\n    print(f\"Archivo: {filename}.p12 | Contraseña: {password}\")",
+        "peekOfCode": "employee_data = read_json(\"assets/employees.json\")\ndf = pd.DataFrame(employee_data)\npasswords = []\nfor employee in employee_data:\n    emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)\n    filename = f\"{employee['nombres'].replace(' ', '_')}\"\n    password = generate_password(16)  # Contraseña de 16 caracteres\n    passwords.append(password)\n    export_p12(emp_cert, emp_key, ca_cert, password, filename)\n    print(f\"Certificado PKCS#12 para {employee['nombres']} generado\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "df = pd.DataFrame(employee_data)\npasswords = []\nfor employee in employee_data:\n    emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)\n    filename = f\"{employee['nombres'].replace(' ', '_')}\"\n    password = generate_password(16)  # Contraseña de 16 caracteres\n    passwords.append(password)\n    export_p12(emp_cert, emp_key, ca_cert, password, filename)\n    print(f\"Certificado PKCS#12 para {employee['nombres']} generado\")\n    print(f\"Archivo: {filename}.p12 | Contraseña: {password}\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "passwords",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "passwords = []\nfor employee in employee_data:\n    emp_key, emp_cert = generate_employee_cert(ca_key, ca_cert, employee)\n    filename = f\"{employee['nombres'].replace(' ', '_')}\"\n    password = generate_password(16)  # Contraseña de 16 caracteres\n    passwords.append(password)\n    export_p12(emp_cert, emp_key, ca_cert, password, filename)\n    print(f\"Certificado PKCS#12 para {employee['nombres']} generado\")\n    print(f\"Archivo: {filename}.p12 | Contraseña: {password}\")\ndf['password'] = passwords",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "df['password']",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "df['password'] = passwords\ndf = df.drop(columns=['cedula'])\ndf.to_csv(\"assets/employees_with_passwords.csv\", index=False, encoding=\"utf-8\")\nprint(\"Archivo CSV con contraseñas generado.\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "df = df.drop(columns=['cedula'])\ndf.to_csv(\"assets/employees_with_passwords.csv\", index=False, encoding=\"utf-8\")\nprint(\"Archivo CSV con contraseñas generado.\")",
         "detail": "main",
         "documentation": {}
     }

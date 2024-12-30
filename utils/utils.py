@@ -27,7 +27,7 @@ def export_p12(cert, key,ca_cert, password, filename):
     )
     
     # Write the serialized data to a .p12 file
-    with open(f"{filename}.p12", "wb") as p12_file:
+    with open(f"assets/certificates/{filename}.p12", "wb") as p12_file:
         p12_file.write(p12)
         
 def generate_password(length=12):
